@@ -1,0 +1,7 @@
+- [] navigation _working on it_
+- [] add new todo
+- [] delete todo
+- [] update todo (make a todo checked)
+- [] show details (dynamic routing)
+- [] chagne details
+- [] animations
