@@ -30,7 +30,7 @@
 </script>
 
 {#if todo}
-  <form class="flex flex-col items-start gap-4 p-4" on:submit="{onSubmit}">
+  <form class="my-8 flex flex-col gap-4" on:submit="{onSubmit}">
     <p>Id: {todo.id}</p>
     <div>
       <label for="todo-title-input">Title</label>

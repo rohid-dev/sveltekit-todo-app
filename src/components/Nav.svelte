@@ -25,26 +25,33 @@
 
 <nav class="flex flex-col p-4">
   <a href="/" class="mb-4 text-2xl font-bold">Todo App</a>
-  <a class="{`nav-item ${$page.routeId === '' ? 'selected' : ''}`}" href="/">
+  <a
+    class="{`nav-item ${$page.routeId === '@todos' ? 'selected' : ''}`}"
+    href="/"
+  >
     <span class="flex-1">All Todos</span>
     <span>{allTodoCount}</span>
   </a>
   <a
-    class="{`nav-item ${$page.routeId === 'favourites' ? 'selected' : ''}`}"
+    class="{`nav-item ${
+      $page.routeId === 'favourites@todos' ? 'selected' : ''
+    }`}"
     href="/favourites"
   >
     <span class="flex-1">Favourites</span>
     <span>{favouriteTodoCount}</span>
   </a>
   <a
-    class="{`nav-item ${$page.routeId === 'completed' ? 'selected' : ''}`}"
+    class="{`nav-item ${
+      $page.routeId === 'completed@todos' ? 'selected' : ''
+    }`}"
     href="/completed"
   >
     <span class="flex-1">Completed</span>
     <span>{completedTodoCount}</span>
   </a>
   <a
-    class="{`nav-item ${$page.routeId === 'deleted' ? 'selected' : ''}`}"
+    class="{`nav-item ${$page.routeId === 'deleted@todos' ? 'selected' : ''}`}"
     href="/deleted"
   >
     <span class="flex-1">Deleted</span>
