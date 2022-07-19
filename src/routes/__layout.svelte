@@ -4,7 +4,7 @@
   import '../app.css';
 </script>
 
-<div class="w-screen h-screen overflow-hidden flex">
+<div class="flex h-screen w-screen overflow-hidden">
   <div class="w-64 bg-gray-100">
     <Nav />
   </div>

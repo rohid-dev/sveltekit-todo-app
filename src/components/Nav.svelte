@@ -1,23 +1,54 @@
 <script>
   import { page } from '$app/stores';
+  import { onDestroy } from 'svelte';
+  import { todos } from '../stores/todos';
+  export let allTodoCount = 0;
+  export let completedTodoCount = 0;
+  export let favouriteTodoCount = 0;
+  export let deletedTodoCount = 0;
+
+  const unsubscribe = todos.subscribe((value) => {
+    allTodoCount = value.filter((todo) => !todo.isDeleted).length;
+    completedTodoCount = value.filter(
+      (todo) => !todo.isDeleted && todo.isCompleted
+    ).length;
+    favouriteTodoCount = value.filter(
+      (todo) => !todo.isDeleted && todo.isFavourite
+    ).length;
+    deletedTodoCount = value.filter((todo) => todo.isDeleted).length;
+  });
+
+  onDestroy(() => {
+    unsubscribe();
+  });
 </script>
 
 <nav class="flex flex-col p-4">
-  <a href="/" class="text-2xl font-bold mb-4">Todo App</a>
+  <a href="/" class="mb-4 text-2xl font-bold">Todo App</a>
   <a class="{`nav-item ${$page.routeId === '' ? 'selected' : ''}`}" href="/">
-    All Todos
+    <span class="flex-1">All Todos</span>
+    <span>{allTodoCount}</span>
   </a>
   <a
     class="{`nav-item ${$page.routeId === 'favourites' ? 'selected' : ''}`}"
-    href="/favourites">Favourites</a
+    href="/favourites"
   >
+    <span class="flex-1">Favourites</span>
+    <span>{favouriteTodoCount}</span>
+  </a>
   <a
     class="{`nav-item ${$page.routeId === 'completed' ? 'selected' : ''}`}"
-    href="/completed">Completed</a
+    href="/completed"
   >
+    <span class="flex-1">Completed</span>
+    <span>{completedTodoCount}</span>
+  </a>
   <a
     class="{`nav-item ${$page.routeId === 'deleted' ? 'selected' : ''}`}"
-    href="/deleted">Deleted</a
+    href="/deleted"
+  >
+    <span class="flex-1">Deleted</span>
+    <span>{deletedTodoCount}</span></a
   >
 </nav>
 

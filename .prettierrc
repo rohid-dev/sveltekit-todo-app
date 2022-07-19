@@ -3,5 +3,5 @@
   "svelteBracketNewLine": true,
   "svelteSortOrder": "options-scripts-markup-styles",
   "svelteAllowShorthand": true,
-  "svelteStrictMode": true,
+  "svelteStrictMode": true
 }

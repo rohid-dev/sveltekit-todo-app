@@ -30,7 +30,7 @@
 </script>
 
 {#if todo}
-  <form class="p-4 flex flex-col items-start gap-4" on:submit="{onSubmit}">
+  <form class="flex flex-col items-start gap-4 p-4" on:submit="{onSubmit}">
     <p>Id: {todo.id}</p>
     <div>
       <label for="todo-title-input">Title</label>
@@ -86,7 +86,7 @@
     </div>
     <button
       type="submit"
-      class="bg-blue-500 disabled:opacity-50 text-white px-4 h-10 rounded-md"
+      class="h-10 rounded-md bg-blue-500 px-4 text-white disabled:opacity-50"
       >Update</button
     >
   </form>

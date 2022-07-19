@@ -15,6 +15,6 @@
   });
 </script>
 
-<div class="flex flex-col w-full h-full">
+<div class="flex h-full w-full flex-col">
   <TodoList data="{allTodos}" />
 </div>
