@@ -1,25 +1,19 @@
 import type { ITodo } from 'src/models/todo';
 import { writable } from 'svelte/store';
+import { browser } from '$app/env';
 
-export const todos = writable<ITodo[]>([
-  {
-    id: '1',
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    title: 'This is a todo',
-  },
-  {
-    id: '2',
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    title: 'This is an other todo',
-    isCompleted: true,
-  },
-  {
-    id: '3',
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    title: 'This is a todo with description',
-    desc: 'This is a todo description',
-  },
-]);
+export const todos = writable<ITodo[]>([], (set) => {
+  if (browser) {
+    const todos = localStorage.getItem('todos');
+    console.log({ todos });
+    if (todos) {
+      set(JSON.parse(todos));
+    }
+  }
+});
+
+if (browser) {
+  todos.subscribe((value) => {
+    localStorage.setItem('todos', JSON.stringify(value));
+  });
+}

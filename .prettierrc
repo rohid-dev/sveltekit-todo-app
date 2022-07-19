@@ -4,5 +4,4 @@
   "svelteSortOrder": "options-scripts-markup-styles",
   "svelteAllowShorthand": true,
   "svelteStrictMode": true,
-  "plugins": ["prettier-plugin-tailwindcss"]
 }

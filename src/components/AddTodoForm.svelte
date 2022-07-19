@@ -11,7 +11,7 @@
     if (!title) return;
 
     const todo: ITodo = {
-      id: Date.now().toLocaleString(),
+      id: Date.now().toString(),
       createdAt: new Date(),
       updatedAt: new Date(),
       title,
@@ -25,18 +25,18 @@
 </script>
 
 <form
-  class="border-t border-gray-100 px-4 h-16 flex items-center gap-4"
+  class="flex h-16 items-center gap-4 border-t border-gray-100 px-4"
   on:submit="{onSubmit}"
 >
   <input
     type="text"
     placeholder="Add something to do..."
-    class="flex-1 w-full bg-gray-100 px-4 h-12 rounded-md text-lg"
+    class="h-12 w-full flex-1 rounded-md bg-gray-100 px-4 text-lg"
     bind:value="{title}"
   />
   <button
     type="submit"
-    class="bg-blue-500 text-white px-4 h-12 rounded-md font-medium text-lg"
+    class="h-12 rounded-md bg-blue-500 px-4 text-lg font-medium text-white"
     >Add</button
   >
 </form>
